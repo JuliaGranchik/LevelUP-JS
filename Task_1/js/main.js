@@ -10,17 +10,14 @@ class Person {
 
 //let obj = new Person(document.getElementById("fname").value, document.getElementsByName('pcolor').value, document.getElementsByName('dish').value);
 
- var person = [];
-
+var person = [];
 function btnOnClick(){
-
 	//document.body.innerHTML = "";
-
 	let body = document.body;
 	let data = {};
+	
 	data.fname = document.getElementById("name").value;
 	person.push(new Person(data.fname));
-
 
 	let contects = '<div align="center"></>';
 	contects += '<p style="color: #D3D3D3"></>';
@@ -29,48 +26,46 @@ function btnOnClick(){
 	let conChoice;
 
 	var nameDish = document.getElementsByName('dish');
-    for (var i = 0; i < nameDish.length; i++) {
-    if (nameDish[i].value === 'burger' && nameDish[i].checked) {
-		contects += ", Ваш идеальный вариант костюма для Хэллоуина - Ночной кошмар бабок";
-		conChoice = 1;
+	for (var i = 0; i < nameDish.length; i++) {
+		if (nameDish[i].checked != true) {
+			continue;
+		}
+		
+    		if (nameDish[i].value === 'burger' ) {
+			contects += ", Ваш идеальный вариант костюма для Хэллоуина - Ночной кошмар бабок";
+			conChoice = 1;
+		} else if (nameDish[i].value === 'potato') {
+			contects += ", Ваш идеальный вариант костюма для Хэллоуина - Алексей программист";
+			conChoice = 2;
+		} else if (nameDish[i].value === 'shaverma'){
+			contects += ", Ваш идеальный вариант костюма для Хэллоуина Вечно грустный мальчик";
+			conChoice = 3;
+		} else if (nameDish[i].value === 'sushi'){
+			contects += ", Ваш идеальный вариант костюма для Хэллоуина - Патриций";
+			conChoice = 4;
+		} else if (nameDish[i].value === 'soul'){
+			contects += ", Ваш идеальный вариант костюма для Хэллоуина - Валерия Шуст";
+			conChoice = 5;
+		}
 	}
-
-	if (nameDish[i].value === 'potato' && nameDish[i].checked){
-		contects += ", Ваш идеальный вариант костюма для Хэллоуина - Алексей программист";
-		conChoice = 2;
-	}
-	if (nameDish[i].value === 'shaverma' && nameDish[i].checked){
-		contects += ", Ваш идеальный вариант костюма для Хэллоуина Вечно грустный мальчик";
-		conChoice = 3;
-
-	}
-	if (nameDish[i].value === 'sushi' && nameDish[i].checked){
-		contects += ", Ваш идеальный вариант костюма для Хэллоуина - Патриций";
-		conChoice = 4;
-	}
-	if (nameDish[i].value === 'soul' && nameDish[i].checked){
-	contects += ", Ваш идеальный вариант костюма для Хэллоуина - Валерия Шуст";
-	conChoice = 5;
-	}
-	}
-
+	
 	var nameColor = document.getElementsByName('color');
-    for (var i = 0; i < nameColor.length; i++) {
-    if (nameColor[i].value === 'yellow' && nameColor[i].checked) {
-		document.body.style.background = "#FFFF00";
-	}
-   if (nameColor[i].value === 'red' && nameColor[i].checked) {
+	for (var i = 0; i < nameColor.length; i++) {
+		if (nameColor[i].checked != true) {
+		    continue;
+		}
+		
+		if (nameColor[i].value === 'yellow') {
+			document.body.style.background = "#FFFF00";
+		} else if (nameColor[i].value === 'red') {
    			document.body.style.background = "#FF0000";
-	}
-   if (nameColor[i].value === 'grey' && nameColor[i].checked) {
-		document.body.style.background = "#f3f3f3";
-	}
-   if (nameColor[i].value === 'black' && nameColor[i].checked) {
-		document.body.style.background = "#000000";
-	}
-   if (nameColor[i].value === 'purple' && nameColor[i].checked) {
-		document.body.style.background = "#9B30FF";
-	}
+		} else if (nameColor[i].value === 'grey') {
+			document.body.style.background = "#f3f3f3";
+		} else if (nameColor[i].value === 'black') {
+			document.body.style.background = "#000000";
+		} else if (nameColor[i].value === 'purple') {
+			document.body.style.background = "#9B30FF";
+		}
 	}
 
 	switch(conChoice){
